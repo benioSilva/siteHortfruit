@@ -1,13 +1,17 @@
-var listaHortifrutiKey = "listaHortifruti"
-function getElementByIds(id) {
+var listaHortifrutiKey = "listaHortifrutiKey"
+
+function getElementById(id) {
     return document.getElementById(id);
+
 }
 function storageCadastroProdutos() {
     const cadastroStorage = localStorage.getItem(listaHortifrutiKey)
     const cadastroObjeto = JSON.parse(cadastroStorage)
     return cadastroObjeto
 }
-var preenchimentoTabela = "PreencherListaProdutos"
+
+var preenchimentoTabelaId = "PreencherListaProdutos"
+
 preencherTabela()
 function analisar(num){
     let comparar = storageCadastroProdutos()
@@ -18,10 +22,10 @@ function analisar(num){
     preencherTabela()
 }
 function preencherTabela(){
-    getElementByIds(preenchimentoTabela).innerHTML=""
+    getElementById(preenchimentoTabelaId).innerHTML=""
     storageCadastroProdutos().forEach(function(element, index){
         console.log(element)
-        getElementByIds(preenchimentoTabela).innerHTML += '<tr>' +
+        getElementById(preenchimentoTabelaId).innerHTML += '<tr>' +
         '<th scope="row">'+(index+1)+ '</th>' +
         '<td>'+element.codigoCadastroProdutos+'</td>'+
         '<td>'+element.produtosCadastroProdutos+'</td>'+

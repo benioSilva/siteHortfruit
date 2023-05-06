@@ -1,4 +1,4 @@
-function getElementByIds(id) {
+function getElementById(id) {
     return document.getElementById(id);
 }
 var produtoId = "produto"
@@ -6,21 +6,21 @@ var codigoId = "codigo"
 var pesoId = "peso"
 var precoId = "preco"
 var botaoId = "botaoEnviar"
-var listaHortifrutiKey = "listaHortifruti"
+var listaHortifrutiKey = "listaHortifrutiKey"
 function storageCadastroProdutos() {
     const cadastroStorage = localStorage.getItem(listaHortifrutiKey)
     const cadastroObjeto = JSON.parse(cadastroStorage)
     return cadastroObjeto
 }
 
-getElementByIds(botaoId).addEventListener('click', function (event) {
+getElementById(botaoId).addEventListener('click', function (event) {
     event.preventDefault();
 
     let listaCadastroProdutos = {
-        codigoCadastroProdutos: getElementByIds(codigoId).value,
-        produtosCadastroProdutos: getElementByIds(produtoId).value,
-        pesoCadastroProdutos: getElementByIds(pesoId).value,
-        precoCadastroProdutos: getElementByIds(precoId).value
+        codigoCadastroProdutos: getElementById(codigoId).value,
+        produtosCadastroProdutos: getElementById(produtoId).value,
+        pesoCadastroProdutos: getElementById(pesoId).value,
+        precoCadastroProdutos: getElementById(precoId).value
     }
     console.log(listaCadastroProdutos)
     if (storageCadastroProdutos() == null) {
@@ -33,9 +33,9 @@ getElementByIds(botaoId).addEventListener('click', function (event) {
 
     }
 
-    getElementByIds(produtoId).value = ''
-    getElementByIds(codigoId).value = ''
-    getElementByIds(pesoId).value = ''
-    getElementByIds(precoId).value = ''
+    getElementById(produtoId).value = ''
+    getElementById(codigoId).value = ''
+    getElementById(pesoId).value = ''
+    getElementById(precoId).value = ''
 
 })
