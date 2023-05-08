@@ -3,7 +3,7 @@ function getElementById(id) {
 }
 var listaHortifrutiKey = "listaHortifrutiKey"
 var selecionarProdutoId = "selecionarProduto"
-var valorId = "valor"
+var valorCompradoId = "valorComprado"
 var botaoCompraId ="botaoPedidos"
 
 function storageCadastroProdutos() {
@@ -32,12 +32,12 @@ function loadlistaProdutos() {
         getElementById(selecionarProdutoId).innerHTML +=
             '<option value = ' + index + '>' + element.produtosCadastroProdutos + '</option>'
     });
-    getElementById(valorId).value= storageCadastroProdutos()[0].precoCadastroProdutos
+    getElementById(valorCompradoId).value= storageCadastroProdutos()[0].precoCadastroProdutos
 }
 
 function onChangeProdutos(){
     let indexProdutos = getElementById(selecionarProdutoId).value
-    getElementById(valorId).value = storageCadastroProdutos()[indexProdutos].precoCadastroProdutos
+    getElementById(valorCompradoId).value = storageCadastroProdutos()[indexProdutos].precoCadastroProdutos
 
 } 
 
@@ -48,7 +48,7 @@ getElementById(botaoCompraId).addEventListener('click', function(event){
         nomeComprador: getElementById(nomeCompradorId).value,
         emailComprador: getElementById(emailCompradorId).value,
         idadeComprador: getElementById(idadeCompradorId).value,
-        produtoComprado: storageCadastroProdutos()[getElementByIds(produtoCompradoId).value].produtosCadastroProdutos,
+        produtoComprado: storageCadastroProdutos()[getElementById(produtoCompradoId).value].produtosCadastroProdutos,
         valorDoProduto: getElementById(valorCompradoId).value,
         statusPedido: "Pendente"
     }
